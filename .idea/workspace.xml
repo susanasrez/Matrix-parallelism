@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34d98072-f5c4-4640-91cc-a862ba9711b5" name="Changes" comment="v.0.0.0">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Matrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/MatrixBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/Viewer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/BlockSizeCalculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixReorganizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/initialAlignment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/matrix/DenseMatrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/matrix/PartitionMatrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/matrixbuilders/DenseRandomMatrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/MatrixMultiplication.java" afterDir="false" />
+    <list default="true" id="34d98072-f5c4-4640-91cc-a862ba9711b5" name="Changes" comment="v.0.1.0">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/TilesMatrixMultiplier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/BlockSizeCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/BlockSizeCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixReorganizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixReorganizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/initialAlignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/initialAlignment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +66,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700296147719</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="v.0.1.0">
+      <created>1700306734762</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700306734762</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -91,6 +89,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v.0.0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="v.0.0.0" />
+    <MESSAGE value="v.0.1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="v.0.1.0" />
   </component>
 </project>

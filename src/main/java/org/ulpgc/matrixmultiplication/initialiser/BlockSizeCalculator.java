@@ -9,28 +9,28 @@ public class BlockSizeCalculator {
     private static int size;
     public static Matrix newMatrix;
 
-    public static PartitionMatrix calculatePartition(Matrix matrix) {
+    public static Matrix calculatePartition(Matrix matrix) {
         newMatrix=matrix;
-        size = matrix.size();
+        size = matrix.size() ;
         availableThreads = Runtime.getRuntime().availableProcessors();
         return calculate();
     }
 
-    private static PartitionMatrix calculate() {
+    private static Matrix calculate() {
         int idealBlockSize = 1;
         int threads = 1;
 
-        for(int i = 2; i <= availableThreads; i++){
-            if (size % i == 0){
-                if (availableThreads >= (size / i)){
+        for (int i = size; i >= 1; i--) {
+            if (size % i == 0) {
+                int blocks = (size / i) * (size / i);
+                if (blocks <= availableThreads && blocks != 1) {
                     idealBlockSize = i;
-                    threads = size /i;
-                    break;
+                    threads = blocks;
                 }
             }
         }
 
-        if (idealBlockSize == 1 || threads == 1){
+        if (threads == 1){
             return MatrixReorganizer.reorganizeMatrix(newMatrix,availableThreads);
         }
         return new PartitionMatrix(newMatrix,idealBlockSize,threads, false, 0);

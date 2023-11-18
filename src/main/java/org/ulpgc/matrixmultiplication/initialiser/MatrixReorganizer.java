@@ -7,7 +7,7 @@ import org.ulpgc.matrixmultiplication.matrix.PartitionMatrix;
 public class MatrixReorganizer {
 
     public static int numAdded = 1;
-    public static PartitionMatrix reorganizeMatrix(Matrix matrix, int availableThreads) {
+    public static Matrix reorganizeMatrix(Matrix matrix, int availableThreads) {
         int newSize = calculateNewSize(matrix.size(), availableThreads);
         Matrix resizeMatrix = copyAndResize(newSize, matrix);
         int[] newsPartitions = calculateBlockSize(newSize, availableThreads);
@@ -46,12 +46,12 @@ public class MatrixReorganizer {
         int idealBlockSize = 1;
         int threads = 1;
 
-        for(int i = 2; i <= availableThreads; i++){
-            if (size % i == 0){
-                if (availableThreads >= (size / i)){
+        for (int i = size; i >= 1; i--) {
+            if (size % i == 0) {
+                int blocks = (size / i) * (size / i);
+                if (blocks <= availableThreads && blocks != 1) {
                     idealBlockSize = i;
-                    threads = size /i;
-                    break;
+                    threads = blocks;
                 }
             }
         }
