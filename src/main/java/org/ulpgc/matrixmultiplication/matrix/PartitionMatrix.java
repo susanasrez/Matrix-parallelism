@@ -3,18 +3,17 @@ package org.ulpgc.matrixmultiplication.matrix;
 import org.ulpgc.matrixmultiplication.Matrix;
 
 public class PartitionMatrix implements Matrix {
+    public int originalSize;
     public int blockSize;
     public int threads;
-
-    public boolean hasRestructured;
     public int numAdded;
     public Matrix[][] subPartitions;
 
-    public PartitionMatrix(Matrix[][] subPartitions, int blockSize, int threads, boolean hasRestructured, int numAdded) {
+    public PartitionMatrix(int originalSize, Matrix[][] subPartitions, int blockSize, int threads, int numAdded) {
+        this.originalSize = originalSize;
         this.subPartitions = subPartitions;
         this.blockSize = blockSize;
         this.threads = threads;
-        this.hasRestructured = hasRestructured;
         this.numAdded = numAdded;
     }
 

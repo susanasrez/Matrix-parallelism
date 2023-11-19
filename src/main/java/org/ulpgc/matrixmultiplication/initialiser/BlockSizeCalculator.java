@@ -36,7 +36,7 @@ public class BlockSizeCalculator {
 
         Matrix[][] subPartition = SubPartitioner.createSubPartitions(matrix, threads, idealBlockSize);
 
-        return new PartitionMatrix(subPartition,idealBlockSize,threads, false, 0);
+        return new PartitionMatrix(matrix.size(), subPartition,idealBlockSize,threads, 0);
     }
 
 }

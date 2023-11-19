@@ -1,4 +1,4 @@
-package org.ulpgc.matrixmultiplication.initialiser;
+package org.ulpgc.matrixmultiplication.operators;
 
 
 import org.ulpgc.matrixmultiplication.Matrix;

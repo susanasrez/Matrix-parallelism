@@ -6,26 +6,27 @@ import org.ulpgc.matrixmultiplication.matrix.PartitionMatrix;
 
 public class MatrixReorganizer {
 
-    public static int numAdded = 1;
     public static Matrix reorganizeMatrix(Matrix matrix, int availableThreads) {
         int newSize = calculateNewSize(matrix.size(), availableThreads);
-        Matrix resizeMatrix = copyAndResize(newSize, matrix);
+        int numAdded = newSize - matrix.size();
         int[] newsPartitions = calculateBlockSize(newSize, availableThreads);
+        Matrix resizeMatrix = copyAndResize(newSize, matrix);
         Matrix[][] subPartitions = SubPartitioner.createSubPartitions(resizeMatrix, newsPartitions[1], newsPartitions[0]);
-        return new PartitionMatrix(subPartitions,newsPartitions[0],newsPartitions[1],true, numAdded);
+        return new PartitionMatrix(matrix.size(),subPartitions,newsPartitions[0],newsPartitions[1], numAdded);
     }
 
     private static int calculateNewSize(int size, int availableThreads) {
         int newSize = size+1;
+
         while(true){
-            for(int i = 2; i <= availableThreads; i++){
+            for(int i = availableThreads; i >= 2; i--){
                 if (newSize % i == 0){
-                    if (availableThreads >= (newSize / i)){
+                    int nBlocks = i * i;
+                    if (availableThreads >= nBlocks){
                         return newSize;
                     }
                 }
             }
-            numAdded++;
             newSize++;
         }
     }
@@ -46,7 +47,6 @@ public class MatrixReorganizer {
     private static int[] calculateBlockSize(int size, int availableThreads) {
         int idealBlockSize = 1;
         int threads = 1;
-
         for (int i = size; i >= 1; i--) {
             if (size % i == 0) {
                 int blocks = (size / i) * (size / i);
@@ -59,8 +59,6 @@ public class MatrixReorganizer {
 
         return new int[]{idealBlockSize,threads};
     }
-
-
 
 
 }
