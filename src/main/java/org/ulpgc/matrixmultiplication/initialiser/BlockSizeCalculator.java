@@ -7,11 +7,11 @@ public class BlockSizeCalculator {
 
     private static int availableThreads;
     private static int size;
-    public static Matrix newMatrix;
+    private static Matrix matrix;
 
-    public static Matrix calculatePartition(Matrix matrix) {
-        newMatrix=matrix;
-        size = matrix.size() ;
+    public static Matrix calculatePartition(Matrix originalMatrix) {
+        matrix=originalMatrix;
+        size = originalMatrix.size() ;
         availableThreads = Runtime.getRuntime().availableProcessors();
         return calculate();
     }
@@ -31,9 +31,10 @@ public class BlockSizeCalculator {
         }
 
         if (threads == 1){
-            return MatrixReorganizer.reorganizeMatrix(newMatrix,availableThreads);
+            return MatrixReorganizer.reorganizeMatrix(matrix,availableThreads);
         }
-        return new PartitionMatrix(newMatrix,idealBlockSize,threads, false, 0);
+
+        return new PartitionMatrix(matrix,idealBlockSize,threads, false, 0);
     }
 
 }

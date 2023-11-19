@@ -1,54 +1,69 @@
 package org.ulpgc.matrixmultiplication.operators;
 
 import org.ulpgc.matrixmultiplication.Matrix;
+import org.ulpgc.matrixmultiplication.initialiser.Aligner;
 import org.ulpgc.matrixmultiplication.matrix.DenseMatrix;
-import org.ulpgc.matrixmultiplication.matrix.PartitionMatrix;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 public class TilesMatrixMultiplier implements MatrixMultiplication {
-    @Override
-    public Matrix multiply(Matrix matrix_a, Matrix matrix_b) {
-        PartitionMatrix matrixA = (PartitionMatrix) matrix_a;
-        PartitionMatrix matrixB = (PartitionMatrix) matrix_a;
 
-        int blockSize = matrixA.blockSize;
-        int numThreads = matrixA.threads;
+    Matrix[][] result;
 
-        DenseMatrix originalMatrixA = (DenseMatrix) matrixA.matrix;
-        DenseMatrix originalMatrixB = (DenseMatrix) matrixB.matrix;
+    public Matrix[][] tilesMultiplication(Matrix[][] matrix_a, Matrix[][] matrix_b){
+        Matrix[][] aligned_A = Aligner.horizontalAlignmentInitial(matrix_a);
+        Matrix[][] aligned_B = Aligner.verticalAlignmentInitial(matrix_b);
 
-        double[][] result = new double[matrixA.size()][matrixA.size()];
+        int size = aligned_A.length;
 
-        ExecutorService executor = Executors.newFixedThreadPool(numThreads);
-
-        for (int i = 0; i < matrixA.size(); i += blockSize) {
-            for (int j = 0; j < matrixA.size(); j += blockSize) {
-                final int row = i;
-                final int col = j;
-                executor.submit(() -> multiplyBlocks(originalMatrixA, originalMatrixB, result, row, col, blockSize));
+        for(int iterations = 0; iterations < size; iterations++){
+            Matrix[][] partialResult = new Matrix[size][size];
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    partialResult[i][j] = multiply(aligned_A[i][j], aligned_B[i][j]);
+                }
             }
+            if(iterations == 0){
+                result = partialResult;
+            }
+            else {
+                add(partialResult);
+            }
+            aligned_A = Aligner.horizontalAlign(aligned_A);
+            aligned_B = Aligner.verticalAlign(aligned_B);
         }
-
-        executor.shutdown();
-        try {
-            executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        return new PartitionMatrix(new DenseMatrix(result), blockSize, numThreads, false, 0);
+        return result;
     }
 
-    private void multiplyBlocks(DenseMatrix matrixA, DenseMatrix matrixB, double[][] result, int startRow, int startCol, int blockSize) {
-        for (int i = startRow; i < startRow + blockSize; i++) {
-            for (int k = 0; k < matrixA.size(); k++) {
-                double aik = matrixA.get(i, k);
-                for (int j = startCol; j < startCol + blockSize; j++) {
-                    result[i][j] += aik * matrixB.get(k, j);
+    @Override
+    public Matrix multiply(Matrix matrix_a, Matrix matrix_b) {
+        double[][] c = new double[matrix_a.size()][matrix_b.size()];
+        for (int i = 0; i < matrix_a.size(); i++) {
+            for (int k = 0; k < matrix_b.size(); k++) {
+                double aik = matrix_a.get(i, k);
+                for (int j = 0; j < matrix_a.size();j++) {
+                    c[i][j] += aik * matrix_b.get(k, j);
                 }
+            }
+        }
+        return new DenseMatrix(c);
+    }
+
+    public void add(Matrix[][] partialResult) {
+        for (int i = 0; i < partialResult.length; i++) {
+            for (int j = 0; j < partialResult.length; j++) {
+                addPartial(partialResult[i][j], i, j);
+            }
+        }
+    }
+
+    public void addPartial(Matrix partialMatrix, int row, int col) {
+        double[][] currentValues = ((DenseMatrix) partialMatrix).values();
+        double[][] resultValues = ((DenseMatrix) result[row][col]).values();
+        int blockSize = partialMatrix.size();
+
+        for (int k = 0; k < blockSize; k++) {
+            for (int l = 0; l < blockSize; l++) {
+                resultValues[k][l] += currentValues[k][l];
             }
         }
     }
