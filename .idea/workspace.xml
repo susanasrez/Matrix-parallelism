@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34d98072-f5c4-4640-91cc-a862ba9711b5" name="Changes" comment="v.0.1.1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/SubPartitioner.java" afterDir="false" />
+    <list default="true" id="34d98072-f5c4-4640-91cc-a862ba9711b5" name="Changes" comment="v.0.1.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/Viewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/Viewer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/BlockSizeCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/BlockSizeCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/initialAlignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/Aligner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/TilesMatrixMultiplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/TilesMatrixMultiplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixReorganizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixReorganizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/SubPartitioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/SubPartitioner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/matrix/PartitionMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/matrix/PartitionMatrix.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700321156218</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="v.0.1.2">
+      <created>1700409215271</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1700409215271</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,6 +105,7 @@
     <MESSAGE value="v.0.0.0" />
     <MESSAGE value="v.0.1.0" />
     <MESSAGE value="v.0.1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="v.0.1.1" />
+    <MESSAGE value="v.0.1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="v.0.1.2" />
   </component>
 </project>

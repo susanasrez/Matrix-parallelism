@@ -1,8 +1,6 @@
 package org.ulpgc.matrixmultiplication;
 
 import org.ulpgc.matrixmultiplication.checker.Viewer;
-import org.ulpgc.matrixmultiplication.initialiser.Aligner;
-import org.ulpgc.matrixmultiplication.initialiser.SubPartitioner;
 import org.ulpgc.matrixmultiplication.matrix.DenseMatrix;
 import org.ulpgc.matrixmultiplication.matrix.PartitionMatrix;
 import org.ulpgc.matrixmultiplication.operators.TilesMatrixMultiplier;
@@ -45,8 +43,7 @@ public class Controller {
         System.out.println("hilos = " + partitionMatrix.threads);
         System.out.println("size = "+ partitionMatrix.size());
 
-        Matrix[][] subpartitions = SubPartitioner.createSubPartitions(partitionMatrix);
-        Matrix[][] order = Aligner.verticalAlign(subpartitions);
+        //Matrix[][] subpartitions = SubPartitioner.createSubPartitions(partitionMatrix);
 
         /*for (int i = 0; i < order.length; i++) {
             for (int j = 0; j < order[i].length; j++) {
@@ -56,7 +53,7 @@ public class Controller {
             }
         }*/
         TilesMatrixMultiplier tilesMatrixMultiplier = new TilesMatrixMultiplier();
-        Matrix[][] xd = tilesMatrixMultiplier.tilesMultiplication(subpartitions, subpartitions);
+        Matrix[][] xd = tilesMatrixMultiplier.tilesMultiplication(partitionMatrix.subPartitions, partitionMatrix.subPartitions);
         for (int i = 0; i < xd.length; i++) {
             for (int j = 0; j < xd[i].length; j++) {
                 System.out.println("Partición [" + i + "][" + j + "]");

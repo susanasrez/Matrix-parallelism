@@ -11,7 +11,8 @@ public class MatrixReorganizer {
         int newSize = calculateNewSize(matrix.size(), availableThreads);
         Matrix resizeMatrix = copyAndResize(newSize, matrix);
         int[] newsPartitions = calculateBlockSize(newSize, availableThreads);
-        return new PartitionMatrix(resizeMatrix,newsPartitions[0],newsPartitions[1],true, numAdded);
+        Matrix[][] subPartitions = SubPartitioner.createSubPartitions(resizeMatrix, newsPartitions[1], newsPartitions[0]);
+        return new PartitionMatrix(subPartitions,newsPartitions[0],newsPartitions[1],true, numAdded);
     }
 
     private static int calculateNewSize(int size, int availableThreads) {

@@ -34,7 +34,9 @@ public class BlockSizeCalculator {
             return MatrixReorganizer.reorganizeMatrix(matrix,availableThreads);
         }
 
-        return new PartitionMatrix(matrix,idealBlockSize,threads, false, 0);
+        Matrix[][] subPartition = SubPartitioner.createSubPartitions(matrix, threads, idealBlockSize);
+
+        return new PartitionMatrix(subPartition,idealBlockSize,threads, false, 0);
     }
 
 }
