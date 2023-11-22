@@ -20,12 +20,13 @@ public class BlockSizeCalculator {
         int idealBlockSize = 1;
         int threads = 1;
 
-        for (int i = size; i >= 1; i--) {
+        for (int i = 1; i <= size; i++) {
             if (size % i == 0) {
                 int blocks = (size / i) * (size / i);
                 if (blocks <= availableThreads && blocks != 1) {
                     idealBlockSize = i;
                     threads = blocks;
+                    break;
                 }
             }
         }

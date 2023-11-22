@@ -19,7 +19,7 @@ public class MatrixReorganizer {
         int newSize = size+1;
 
         while(true){
-            for(int i = availableThreads; i >= 2; i--){
+            for(int i = availableThreads; i >= 1; i--){
                 if (newSize % i == 0){
                     int nBlocks = i * i;
                     if (availableThreads >= nBlocks){
@@ -47,12 +47,13 @@ public class MatrixReorganizer {
     private static int[] calculateBlockSize(int size, int availableThreads) {
         int idealBlockSize = 1;
         int threads = 1;
-        for (int i = size; i >= 1; i--) {
+        for (int i = 1; i <= size; i++) {
             if (size % i == 0) {
                 int blocks = (size / i) * (size / i);
                 if (blocks <= availableThreads && blocks != 1) {
                     idealBlockSize = i;
                     threads = blocks;
+                    break;
                 }
             }
         }

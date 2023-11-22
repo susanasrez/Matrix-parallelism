@@ -1,11 +1,11 @@
 package org.ulpgc.matrixmultiplication;
 
-import org.ulpgc.matrixmultiplication.checker.TimerTemp;
+import org.ulpgc.matrixmultiplication.view.API;
 
 public class Controller {
 
-    public Controller() {
-        TimerTemp.setUp(1021);
+    public Controller(int port) {
+        API.runAPI(port);
     }
 
 

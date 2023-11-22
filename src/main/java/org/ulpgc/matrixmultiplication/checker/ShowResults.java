@@ -11,53 +11,54 @@ import org.ulpgc.matrixmultiplication.operators.matrixmultiplication.TilesMatrix
 
 import static org.ulpgc.matrixmultiplication.initialiser.BlockSizeCalculator.calculatePartition;
 
-public class TimerTemp {
+public class ShowResults {
 
-    public static void setUp(int n) {
+    public static TimeResults timeResults = new TimeResults();
+
+    public static TimeResults calculate(int n){
         DenseRandomMatrix denseRandomMatrix = new DenseRandomMatrix();
         DenseMatrix denseMatrix = (DenseMatrix) denseRandomMatrix.matrix(n);
 
         Matrix result_parallel = time_mult_tiles(denseMatrix);
         Matrix result_sequential = time_mult_dense(denseMatrix);
 
-        boolean good = Checker.areMatricesEqual(result_parallel, result_sequential);
-        System.out.println();
-        System.out.println("Test = " + good);
+        testParallel(result_parallel, result_sequential, denseMatrix);
+
+        return timeResults;
     }
+
     public static Matrix time_mult_tiles(DenseMatrix denseMatrix) {
         PartitionMatrix partitionMatrix = (PartitionMatrix) calculatePartition(denseMatrix);
-        knowAttributes(partitionMatrix);
+        timeResults.characteristics(partitionMatrix);
 
         TilesMatrixMultiplier tilesMatrixMultiplier = new TilesMatrixMultiplier();
         long startTime = System.currentTimeMillis();
         PartitionMatrix result_tiles = tilesMatrixMultiplier.tilesMultiplication(partitionMatrix, partitionMatrix);
         long endTime = System.currentTimeMillis();
         long executionTime = endTime - startTime;
-        System.out.println("Parallel runtime: " + executionTime + " milliseconds");
+        timeResults.timeParallel(executionTime);
 
         return MatrixRestorer.resetMatrix(result_tiles);
     }
 
     public static Matrix time_mult_dense(DenseMatrix denseMatrix){
         MatrixMultiplication denseMatrixMult = new DenseMatrixMultiplication();
-        long startTime2 = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
         Matrix result_sequential = denseMatrixMult.multiply(denseMatrix, denseMatrix);
-        long endTime2 = System.currentTimeMillis();
-        long executionTime2 = endTime2 - startTime2;
+        long endTime = System.currentTimeMillis();
+        long executionTime = endTime - startTime;
+        timeResults.timeSequential(executionTime);
 
-        System.out.println("Sequential Runtime: " + executionTime2 + " milliseconds");
         return result_sequential;
     }
 
-    public static void knowAttributes(PartitionMatrix partitionMatrix){
-        System.out.println("Original size = " + partitionMatrix.originalSize);
-        System.out.println("Block size = " + partitionMatrix.blockSize);
-        System.out.println("Number of threads required = " + partitionMatrix.threads);
-        System.out.println("Number of rows/columns added = " + partitionMatrix.numAdded);
-        System.out.println("Subpartition Array Length = " + partitionMatrix.subPartitions.length );
-        int newSize = partitionMatrix.originalSize + partitionMatrix.numAdded;
-        System.out.println("New Size = "+ newSize);
-        System.out.println();
+    public static void testParallel(Matrix result_parallel, Matrix result_sequential, Matrix operand){
+        boolean testParallel = Checker.test(operand, operand, result_parallel);
+        boolean testSequential = Checker.test(operand, operand, result_sequential);
+        boolean matricesEqual = Checker.areMatricesEqual(result_parallel, result_sequential);
+        timeResults.testParallel(testParallel);
+        timeResults.testSequential(testSequential);
+        timeResults.areResultsEquals(matricesEqual);
     }
 
 }

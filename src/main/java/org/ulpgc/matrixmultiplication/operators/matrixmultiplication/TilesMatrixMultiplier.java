@@ -64,7 +64,7 @@ public class TilesMatrixMultiplier implements MatrixMultiplication {
                 executor.shutdown();
             }
         }
-        return new PartitionMatrix(matrix_a.originalSize,result, matrix_a.blockSize, matrix_a.threads, matrix_a.numAdded);
+        return new PartitionMatrix(matrix_a.originalSize, result, matrix_a.blockSize, matrix_a.threads, matrix_a.numAdded);
     }
 
     @Override

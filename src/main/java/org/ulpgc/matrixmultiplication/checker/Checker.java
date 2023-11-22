@@ -7,7 +7,7 @@ import org.ulpgc.matrixmultiplication.operators.matrixmultiplication.DenseMatrix
 
 public class Checker {
     
-    public static boolean testDense(Matrix a , Matrix b, Matrix c){
+    public static boolean test(Matrix a , Matrix b, Matrix c){
         MatrixMultiplication multiplier = new DenseMatrixMultiplication();
         Matrix ab = multiplier.multiply(a,b);
         Matrix ab_c = multiplier.multiply(ab, c);
