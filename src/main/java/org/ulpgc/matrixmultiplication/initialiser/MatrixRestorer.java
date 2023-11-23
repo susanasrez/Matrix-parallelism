@@ -2,12 +2,12 @@ package org.ulpgc.matrixmultiplication.initialiser;
 
 import org.ulpgc.matrixmultiplication.Matrix;
 import org.ulpgc.matrixmultiplication.matrix.DenseMatrix;
-import org.ulpgc.matrixmultiplication.matrix.PartitionMatrix;
+import org.ulpgc.matrixmultiplication.matrix.PartitionedMatrix;
 
 public class MatrixRestorer {
 
     public static Matrix resetMatrix(Matrix matrix){
-        PartitionMatrix partitionMatrix = (PartitionMatrix) matrix;
+        PartitionedMatrix partitionMatrix = (PartitionedMatrix) matrix;
         DenseMatrix denseMatrix = (DenseMatrix) convertToDenseMatrix(partitionMatrix.subPartitions);
         return originalMatrix(denseMatrix, partitionMatrix.numAdded);
     }

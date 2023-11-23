@@ -4,20 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34d98072-f5c4-4640-91cc-a862ba9711b5" name="Changes" comment="v.0.2.0">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/ShowResults.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/TimeResults.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/view/API.java" afterDir="false" />
+    <list default="true" id="34d98072-f5c4-4640-91cc-a862ba9711b5" name="Changes" comment="v.1.0.0">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/MatrixMultiplicationChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixConsoleUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/Initialiser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/matrixmultiplication/TilesMatrixMultiplierNoAlign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/Checker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/TimerTemp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/TimerTemp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/ShowResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/ShowResults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/TimeResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/TimeResults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/TimerTemp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixInfoPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/Viewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/Viewer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/BlockSizeCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/BlockSizeCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixReorganizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixReorganizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/Aligner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/Aligner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixRestorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixRestorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/matrix/PartitionMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/matrix/PartitionedMatrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/matrixmultiplication/TilesMatrixMultiplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/matrixmultiplication/TilesMatrixMultiplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/view/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/view/API.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700420453079</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="v.0.2.1">
+      <created>1700673477537</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1700673477537</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +151,8 @@
     <MESSAGE value="v.0.1.2" />
     <MESSAGE value="v.0.1.3" />
     <MESSAGE value="v.0.2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="v.0.2.0" />
+    <MESSAGE value="v.0.2.1" />
+    <MESSAGE value="v.1.0.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="v.1.0.0" />
   </component>
 </project>

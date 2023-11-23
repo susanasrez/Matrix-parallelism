@@ -1,15 +1,16 @@
 package org.ulpgc.matrixmultiplication.initialiser;
 
 import org.ulpgc.matrixmultiplication.Matrix;
-import org.ulpgc.matrixmultiplication.matrix.PartitionMatrix;
+import org.ulpgc.matrixmultiplication.matrix.PartitionedMatrix;
 
-public class BlockSizeCalculator {
+public class BlockSizeCalculator implements Initialiser{
 
     private static int availableThreads;
     private static int size;
     private static Matrix matrix;
 
-    public static Matrix calculatePartition(Matrix originalMatrix) {
+    @Override
+    public Matrix calculatePartition(Matrix originalMatrix) {
         matrix=originalMatrix;
         size = originalMatrix.size() ;
         availableThreads = Runtime.getRuntime().availableProcessors();
@@ -37,7 +38,7 @@ public class BlockSizeCalculator {
 
         Matrix[][] subPartition = SubPartitioner.createSubPartitions(matrix, threads, idealBlockSize);
 
-        return new PartitionMatrix(matrix.size(), subPartition,idealBlockSize,threads, 0);
+        return new PartitionedMatrix(matrix.size(), subPartition,idealBlockSize,threads, 0);
     }
 
 }

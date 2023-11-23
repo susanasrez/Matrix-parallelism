@@ -3,7 +3,6 @@ package org.ulpgc.matrixmultiplication.operators.matrixmultiplication;
 import org.ulpgc.matrixmultiplication.Matrix;
 import org.ulpgc.matrixmultiplication.matrix.DenseMatrix;
 import org.ulpgc.matrixmultiplication.matrix.PartitionedMatrix;
-import org.ulpgc.matrixmultiplication.operators.Aligner;
 import org.ulpgc.matrixmultiplication.operators.MatrixMultiplication;
 
 import java.util.concurrent.CompletionService;
@@ -11,52 +10,46 @@ import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
-public class TilesMatrixMultiplier implements MatrixMultiplication {
+public class TilesMatrixMultiplierNoAlign implements MatrixMultiplication {
 
     Matrix[][] result;
 
-    public Matrix tilesMultiplication(PartitionedMatrix matrix_a, PartitionedMatrix matrix_b){
-        Matrix[][] aligned_A = Aligner.horizontalAlignmentInitial(matrix_a.subPartitions);
-        Matrix[][] aligned_B = Aligner.verticalAlignmentInitial(matrix_b.subPartitions);
+    public Matrix tilesMultiplication(PartitionedMatrix matrix_a, PartitionedMatrix matrix_b) throws InterruptedException {
+        result = new Matrix[matrix_a.size()][matrix_a.size()];
+        Matrix[][] a =  matrix_a.subPartitions;
+        Matrix[][] b = matrix_b.subPartitions;
+        int size = a.length;
 
-        int size = aligned_A.length;
-
-        for(int iterations = 0; iterations < size; iterations++){
+        for (int i = 0; i < a.length; i++){
             Matrix[][] partialResult = new Matrix[size][size];
 
             ExecutorService executor = Executors.newFixedThreadPool(matrix_a.threads);
+
             try {
                 int tasksCount = size * size;
                 CompletionService<Void> completionService = new ExecutorCompletionService<>(executor);
-
-                for (int i = 0; i < size; i++) {
-                    for (int j = 0; j < size; j++) {
-                        final int row = i;
-                        final int col = j;
-                        Matrix[][] finalAligned_A = aligned_A;
-                        Matrix[][] finalAligned_B = aligned_B;
+                for (int j = 0; j < a.length; j++) {
+                    for (int k = 0; k < a.length; k++) {
+                        int finalK = k;
+                        int finalJ = j;
+                        int finalI = i;
                         completionService.submit(() -> {
-                            partialResult[row][col] = multiply(finalAligned_A[row][col], finalAligned_B[row][col]);
+                            partialResult[finalJ][finalK] = multiply(a[finalJ][finalI], b[finalI][finalK]);
                             return null;
                         });
                     }
                 }
-
                 for (int t = 0; t < tasksCount; t++) {
                     completionService.take();
                 }
 
-                if (iterations == 0) {
+                if (i == 0) {
                     result = partialResult;
                 } else {
                     synchronized (this) {
                         add(partialResult);
                     }
                 }
-
-                aligned_A = Aligner.horizontalAlign(aligned_A);
-                aligned_B = Aligner.verticalAlign(aligned_B);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 e.printStackTrace();
@@ -66,6 +59,7 @@ public class TilesMatrixMultiplier implements MatrixMultiplication {
         }
         return new PartitionedMatrix(matrix_a.originalSize, result, matrix_a.blockSize, matrix_a.threads, matrix_a.numAdded);
     }
+
 
     @Override
     public Matrix multiply(Matrix matrix_a, Matrix matrix_b) {
@@ -100,4 +94,7 @@ public class TilesMatrixMultiplier implements MatrixMultiplication {
             }
         }
     }
+
+
 }
+

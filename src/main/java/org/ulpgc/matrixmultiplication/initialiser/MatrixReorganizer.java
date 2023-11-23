@@ -2,7 +2,7 @@ package org.ulpgc.matrixmultiplication.initialiser;
 
 import org.ulpgc.matrixmultiplication.Matrix;
 import org.ulpgc.matrixmultiplication.matrix.DenseMatrix;
-import org.ulpgc.matrixmultiplication.matrix.PartitionMatrix;
+import org.ulpgc.matrixmultiplication.matrix.PartitionedMatrix;
 
 public class MatrixReorganizer {
 
@@ -12,7 +12,7 @@ public class MatrixReorganizer {
         int[] newsPartitions = calculateBlockSize(newSize, availableThreads);
         Matrix resizeMatrix = copyAndResize(newSize, matrix);
         Matrix[][] subPartitions = SubPartitioner.createSubPartitions(resizeMatrix, newsPartitions[1], newsPartitions[0]);
-        return new PartitionMatrix(matrix.size(),subPartitions,newsPartitions[0],newsPartitions[1], numAdded);
+        return new PartitionedMatrix(matrix.size(),subPartitions,newsPartitions[0],newsPartitions[1], numAdded);
     }
 
     private static int calculateNewSize(int size, int availableThreads) {

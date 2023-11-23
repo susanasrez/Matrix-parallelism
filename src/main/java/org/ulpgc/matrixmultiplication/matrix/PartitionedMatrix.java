@@ -2,14 +2,14 @@ package org.ulpgc.matrixmultiplication.matrix;
 
 import org.ulpgc.matrixmultiplication.Matrix;
 
-public class PartitionMatrix implements Matrix {
+public class PartitionedMatrix implements Matrix {
     public int originalSize;
     public int blockSize;
     public int threads;
     public int numAdded;
     public Matrix[][] subPartitions;
 
-    public PartitionMatrix(int originalSize, Matrix[][] subPartitions, int blockSize, int threads, int numAdded) {
+    public PartitionedMatrix(int originalSize, Matrix[][] subPartitions, int blockSize, int threads, int numAdded) {
         this.originalSize = originalSize;
         this.subPartitions = subPartitions;
         this.blockSize = blockSize;

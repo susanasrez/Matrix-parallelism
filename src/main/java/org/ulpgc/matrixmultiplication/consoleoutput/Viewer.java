@@ -1,4 +1,4 @@
-package org.ulpgc.matrixmultiplication.checker;
+package org.ulpgc.matrixmultiplication.consoleoutput;
 
 import org.ulpgc.matrixmultiplication.Matrix;
 
@@ -13,7 +13,6 @@ public class Viewer {
             System.out.println();
         }
     }
-
 
 
 }

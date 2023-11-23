@@ -5,9 +5,10 @@ import org.ulpgc.matrixmultiplication.matrix.DenseMatrix;
 import org.ulpgc.matrixmultiplication.operators.MatrixMultiplication;
 import org.ulpgc.matrixmultiplication.operators.matrixmultiplication.DenseMatrixMultiplication;
 
-public class Checker {
-    
-    public static boolean test(Matrix a , Matrix b, Matrix c){
+public class Checker implements MatrixMultiplicationChecker{
+
+    @Override
+    public boolean test(Matrix a , Matrix b, Matrix c){
         MatrixMultiplication multiplier = new DenseMatrixMultiplication();
         Matrix ab = multiplier.multiply(a,b);
         Matrix ab_c = multiplier.multiply(ab, c);
@@ -16,7 +17,8 @@ public class Checker {
         return areMatricesEqual(ab_c, a_bc);
     }
 
-    public static boolean areMatricesEqual(Matrix ab_c, Matrix a_bc) {
+    @Override
+    public boolean areMatricesEqual(Matrix ab_c, Matrix a_bc) {
         double epsilon = 1E-8;
         DenseMatrix a = (DenseMatrix) ab_c;
         DenseMatrix b = (DenseMatrix) a_bc;
