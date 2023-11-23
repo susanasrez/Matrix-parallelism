@@ -1,6 +1,6 @@
-package org.ulpgc.matrixmultiplication.consoleoutput;
+package org.ulpgc.matrixmultiplication;
 
-import org.ulpgc.matrixmultiplication.Matrix;
+import org.ulpgc.matrixmultiplication.consoleoutput.TimeResults;
 import org.ulpgc.matrixmultiplication.matrix.DenseMatrix;
 
 public interface MatrixConsoleUtil {

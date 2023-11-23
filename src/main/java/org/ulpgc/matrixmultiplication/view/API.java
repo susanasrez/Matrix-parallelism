@@ -1,8 +1,8 @@
 package org.ulpgc.matrixmultiplication.view;
 
 import com.google.gson.Gson;
-import org.ulpgc.matrixmultiplication.consoleoutput.MatrixConsoleUtil;
-import org.ulpgc.matrixmultiplication.consoleoutput.ShowResults;
+import org.ulpgc.matrixmultiplication.MatrixConsoleUtil;
+import org.ulpgc.matrixmultiplication.consoleoutput.MatrixMultiplicationResultPresenter;
 import org.ulpgc.matrixmultiplication.consoleoutput.TimeResults;
 
 import static spark.Spark.get;
@@ -10,7 +10,7 @@ import static spark.Spark.port;
 
 public class API {
 
-    static MatrixConsoleUtil showResults = new ShowResults();
+    static MatrixConsoleUtil showResults = new MatrixMultiplicationResultPresenter();
 
     public static void runAPI(int port){
         port(port);

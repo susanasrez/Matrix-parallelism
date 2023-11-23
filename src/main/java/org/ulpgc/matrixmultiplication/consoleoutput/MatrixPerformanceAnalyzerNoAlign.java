@@ -1,6 +1,7 @@
 package org.ulpgc.matrixmultiplication.consoleoutput;
 
 import org.ulpgc.matrixmultiplication.Matrix;
+import org.ulpgc.matrixmultiplication.MatrixConsoleUtil;
 import org.ulpgc.matrixmultiplication.checker.Checker;
 import org.ulpgc.matrixmultiplication.checker.MatrixMultiplicationChecker;
 import org.ulpgc.matrixmultiplication.initialiser.BlockSizeCalculator;
@@ -11,15 +12,14 @@ import org.ulpgc.matrixmultiplication.matrix.PartitionedMatrix;
 import org.ulpgc.matrixmultiplication.matrixbuilders.DenseRandomMatrix;
 import org.ulpgc.matrixmultiplication.operators.MatrixMultiplication;
 import org.ulpgc.matrixmultiplication.operators.matrixmultiplication.DenseMatrixMultiplication;
-import org.ulpgc.matrixmultiplication.operators.matrixmultiplication.TilesMatrixMultiplier;
+import org.ulpgc.matrixmultiplication.operators.matrixmultiplication.TilesMatrixMultiplierNoAlign;
 
-
-public class MatrixInfoPresenter implements MatrixConsoleUtil{
-
+public class MatrixPerformanceAnalyzerNoAlign implements MatrixConsoleUtil {
     MatrixMultiplicationChecker checker = new Checker();
     Initialiser initialiser = new BlockSizeCalculator();
+
     @Override
-    public TimeResults setUp(int n){
+    public TimeResults setUp(int n) throws InterruptedException {
         DenseRandomMatrix denseRandomMatrix = new DenseRandomMatrix();
         DenseMatrix denseMatrix = (DenseMatrix) denseRandomMatrix.matrix(n);
 
@@ -33,13 +33,13 @@ public class MatrixInfoPresenter implements MatrixConsoleUtil{
     }
 
     @Override
-    public Matrix time_mult_tiles(DenseMatrix denseMatrix){
+    public Matrix time_mult_tiles(DenseMatrix denseMatrix) throws InterruptedException {
         PartitionedMatrix partitionMatrix = (PartitionedMatrix) initialiser.calculatePartition(denseMatrix);
         knowAttributes(partitionMatrix);
 
-        MatrixMultiplication tilesMatrixMultiplier = new TilesMatrixMultiplier();
+        MatrixMultiplication tilesMatrixMultiplier = new TilesMatrixMultiplierNoAlign();
         long startTime = System.currentTimeMillis();
-        Matrix result_tiles = ((TilesMatrixMultiplier) tilesMatrixMultiplier).tilesMultiplication(partitionMatrix, partitionMatrix);
+        Matrix result_tiles = ((TilesMatrixMultiplierNoAlign) tilesMatrixMultiplier).tilesMultiplication(partitionMatrix, partitionMatrix);
         long endTime = System.currentTimeMillis();
 
         long executionTime = endTime - startTime;

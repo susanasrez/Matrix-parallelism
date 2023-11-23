@@ -8,7 +8,6 @@ public class Aligner {
     public static Matrix[][] horizontalAlignmentInitial(Matrix[][] matrix){
         int dimension = matrix.length;
         Matrix[][] newOrder = new Matrix[dimension][dimension];
-        //Cambiar lo de i =0
 
         for(int i = 0; i < dimension; i++){
             for(int j = 0; j < dimension; j++){

@@ -5,23 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34d98072-f5c4-4640-91cc-a862ba9711b5" name="Changes" comment="v.1.0.0">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/MatrixMultiplicationChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixConsoleUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/Initialiser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/matrixmultiplication/TilesMatrixMultiplierNoAlign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixPerformanceAnalyzerNoAlign.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/Checker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/ShowResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/ShowResults.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/TimeResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/TimeResults.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/TimerTemp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixInfoPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/Viewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/Viewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/BlockSizeCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/BlockSizeCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixReorganizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixReorganizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixRestorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/initialiser/MatrixRestorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/matrix/PartitionMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/matrix/PartitionedMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/matrixmultiplication/TilesMatrixMultiplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/matrixmultiplication/TilesMatrixMultiplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixConsoleUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/MatrixConsoleUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixInfoPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixPerformanceAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/ShowResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixMultiplicationResultPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/Aligner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/Aligner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/view/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/view/API.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,13 +44,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main API" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.matrixmultiplication.Main" />
@@ -130,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700673477537</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="v.1.0.0">
+      <created>1700758398917</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1700758398917</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -1,6 +1,7 @@
 package org.ulpgc.matrixmultiplication.consoleoutput;
 
 import org.ulpgc.matrixmultiplication.Matrix;
+import org.ulpgc.matrixmultiplication.MatrixConsoleUtil;
 import org.ulpgc.matrixmultiplication.checker.Checker;
 import org.ulpgc.matrixmultiplication.checker.MatrixMultiplicationChecker;
 import org.ulpgc.matrixmultiplication.initialiser.BlockSizeCalculator;
@@ -14,12 +15,10 @@ import org.ulpgc.matrixmultiplication.operators.matrixmultiplication.DenseMatrix
 import org.ulpgc.matrixmultiplication.operators.matrixmultiplication.TilesMatrixMultiplier;
 
 
-public class ShowResults implements MatrixConsoleUtil{
+public class MatrixPerformanceAnalyzer implements MatrixConsoleUtil {
 
-    public static TimeResults timeResults = new TimeResults();
     MatrixMultiplicationChecker checker = new Checker();
     Initialiser initialiser = new BlockSizeCalculator();
-
     @Override
     public TimeResults setUp(int n){
         DenseRandomMatrix denseRandomMatrix = new DenseRandomMatrix();
@@ -28,22 +27,24 @@ public class ShowResults implements MatrixConsoleUtil{
         Matrix result_parallel = time_mult_tiles(denseMatrix);
         Matrix result_sequential = time_mult_dense(denseMatrix);
 
-        knowAttributes(result_parallel, result_sequential, denseMatrix);
-
-        return timeResults;
+        boolean good = checker.areMatricesEqual(result_parallel, result_sequential);
+        System.out.println();
+        System.out.println("Test = " + good);
+        return null;
     }
 
     @Override
-    public Matrix time_mult_tiles(DenseMatrix denseMatrix) {
+    public Matrix time_mult_tiles(DenseMatrix denseMatrix){
         PartitionedMatrix partitionMatrix = (PartitionedMatrix) initialiser.calculatePartition(denseMatrix);
-        timeResults.characteristics(partitionMatrix);
+        knowAttributes(partitionMatrix);
 
         MatrixMultiplication tilesMatrixMultiplier = new TilesMatrixMultiplier();
         long startTime = System.currentTimeMillis();
         Matrix result_tiles = ((TilesMatrixMultiplier) tilesMatrixMultiplier).tilesMultiplication(partitionMatrix, partitionMatrix);
         long endTime = System.currentTimeMillis();
+
         long executionTime = endTime - startTime;
-        timeResults.timeParallel(executionTime);
+        System.out.println("Parallel runtime: " + executionTime + " milliseconds");
 
         return MatrixRestorer.resetMatrix(result_tiles);
     }
@@ -51,22 +52,23 @@ public class ShowResults implements MatrixConsoleUtil{
     @Override
     public Matrix time_mult_dense(DenseMatrix denseMatrix){
         MatrixMultiplication denseMatrixMult = new DenseMatrixMultiplication();
-        long startTime = System.currentTimeMillis();
+        long startTime2 = System.currentTimeMillis();
         Matrix result_sequential = denseMatrixMult.multiply(denseMatrix, denseMatrix);
-        long endTime = System.currentTimeMillis();
-        long executionTime = endTime - startTime;
-        timeResults.timeSequential(executionTime);
+        long endTime2 = System.currentTimeMillis();
+        long executionTime2 = endTime2 - startTime2;
 
+        System.out.println("Sequential Runtime: " + executionTime2 + " milliseconds");
         return result_sequential;
     }
 
-    public void knowAttributes(Matrix result_parallel, Matrix result_sequential, Matrix operand){
-        boolean testParallel = checker.test(operand, operand, result_parallel);
-        boolean testSequential = checker.test(operand, operand, result_sequential);
-        boolean matricesEqual = checker.areMatricesEqual(result_parallel, result_sequential);
-        timeResults.testParallel(testParallel);
-        timeResults.testSequential(testSequential);
-        timeResults.areResultsEquals(matricesEqual);
+    public void knowAttributes(PartitionedMatrix partitionMatrix){System.out.println("Original size = " + partitionMatrix.originalSize);
+        System.out.println("Block size = " + partitionMatrix.blockSize);
+        System.out.println("Number of threads required = " + partitionMatrix.threads);
+        System.out.println("Number of rows/columns added = " + partitionMatrix.numAdded);
+        System.out.println("Subpartition Array Length = " + partitionMatrix.subPartitions.length );
+        int newSize = partitionMatrix.originalSize + partitionMatrix.numAdded;
+        System.out.println("New Size = "+ newSize);
+        System.out.println();
     }
 
 }
