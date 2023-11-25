@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34d98072-f5c4-4640-91cc-a862ba9711b5" name="Changes" comment="v.1.0.0">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixPerformanceAnalyzerNoAlign.java" afterDir="false" />
+    <list default="true" id="34d98072-f5c4-4640-91cc-a862ba9711b5" name="Changes" comment="v.1.0.1">
+      <change afterPath="$PROJECT_DIR$/src/test/java/dense/BenchmarkStateSequential.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/dense/Sequential.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/parallel/BenchmarkStateAlign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/parallel/ParallelAlign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/parallelNoAlign/BenchmarkStateNoAlign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/parallelNoAlign/ParallelNoAlign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/parallelisationOverhead/TimeSplit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/times/Operators.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/times/Timer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixConsoleUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/MatrixConsoleUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixInfoPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixPerformanceAnalyzer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/ShowResults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/consoleoutput/MatrixMultiplicationResultPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/Aligner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/operators/Aligner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/view/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/view/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/matrixmultiplication/checker/Checker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,10 +56,11 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Timer">
     <configuration name="Main API" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.matrixmultiplication.Main" />
       <module name="MatrixParallelism" />
@@ -63,6 +69,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Timer" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="times.Timer" />
+      <module name="MatrixParallelism" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="times.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParallelAlign" type="jmh-id" temporary="true" vm-parameters="" program-parameters="parallel.ParallelAlign.multiplication$" working-dir="$MODULE_WORKING_DIR$" benchmark-type="METHOD" benchmark-class="parallel.ParallelAlign" isAlternativeJrePathEnabled="false">
+      <module name="MatrixParallelism" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParallelNoAlign" type="jmh-id" temporary="true" vm-parameters="" program-parameters="parallelNoAlign.ParallelNoAlign.multiplication$" working-dir="$MODULE_WORKING_DIR$" benchmark-type="METHOD" benchmark-class="parallelNoAlign.ParallelNoAlign" isAlternativeJrePathEnabled="false">
+      <module name="MatrixParallelism" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sequential" type="jmh-id" temporary="true" vm-parameters="" program-parameters="dense.Sequential.multiplication$" working-dir="$MODULE_WORKING_DIR$" benchmark-type="METHOD" benchmark-class="dense.Sequential" isAlternativeJrePathEnabled="false">
+      <module name="MatrixParallelism" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main API" />
+      <item itemvalue="Application.Timer" />
+      <item itemvalue="Jmh.Sequential" />
+      <item itemvalue="Jmh.ParallelNoAlign" />
+      <item itemvalue="Jmh.ParallelAlign" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Timer" />
+        <item itemvalue="Jmh.Sequential" />
+        <item itemvalue="Jmh.ParallelNoAlign" />
+        <item itemvalue="Jmh.ParallelAlign" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -129,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700758398917</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="v.1.0.1">
+      <created>1700766386206</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1700766386206</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +211,7 @@
     <MESSAGE value="v.0.2.0" />
     <MESSAGE value="v.0.2.1" />
     <MESSAGE value="v.1.0.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="v.1.0.0" />
+    <MESSAGE value="v.1.0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="v.1.0.1" />
   </component>
 </project>

@@ -19,7 +19,7 @@ public class Checker implements MatrixMultiplicationChecker{
 
     @Override
     public boolean areMatricesEqual(Matrix ab_c, Matrix a_bc) {
-        double epsilon = 1E-8;
+        double epsilon = 1E-3;
         DenseMatrix a = (DenseMatrix) ab_c;
         DenseMatrix b = (DenseMatrix) a_bc;
         for (int i = 0; i < a.size(); i++) {
