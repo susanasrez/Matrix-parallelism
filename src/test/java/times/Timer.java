@@ -28,8 +28,8 @@ public class Timer {
                 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304);
 
         //for (Integer n : dimensions) {
-            Matrix matrixA = Operators.operator(8);
-            System.out.println("N = " + 8);
+            Matrix matrixA = Operators.operator(8192);
+            System.out.println("N = " + 8192);
             timerParallel(matrixA);
             timerParallelNoAlign(matrixA);
             timerSequential(matrixA);

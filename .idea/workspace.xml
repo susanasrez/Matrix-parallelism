@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34d98072-f5c4-4640-91cc-a862ba9711b5" name="Changes" comment="v.1.1.0">
-      <change beforePath="$PROJECT_DIR$/src/test/java/dense/BenchmarkStateSequential.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dense/BenchmarkStateSequential.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dense/Sequential.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dense/Sequential.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/parallel/ParallelAlign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/parallel/ParallelAlign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/parallelNoAlign/ParallelNoAlign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/parallelNoAlign/ParallelNoAlign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/parallelisationOverhead/TimeSplit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/parallelisationOverhead/TimeSplit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/times/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/times/Timer.java" afterDir="false" />
-    </list>
+    <list default="true" id="34d98072-f5c4-4640-91cc-a862ba9711b5" name="Changes" comment="v.1.1.0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -189,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700911506213</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="v.1.1.0">
+      <created>1700911612523</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700911612523</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
