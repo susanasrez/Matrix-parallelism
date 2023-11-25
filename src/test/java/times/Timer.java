@@ -27,8 +27,8 @@ public class Timer {
         List<Integer> dimensions = Arrays.asList(8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096,
                 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304);
 
-        //for (Integer n : dimensions) {
-            Matrix matrixA = Operators.operator(8192);
+        for (Integer n : dimensions) {
+            Matrix matrixA = Operators.operator(n);
             System.out.println("N = " + 8192);
             timerParallel(matrixA);
             timerParallelNoAlign(matrixA);
@@ -39,7 +39,7 @@ public class Timer {
             boolean testResultEqualsSequential =  checker.areMatricesEqual(result_tiles, result_sequential);
             System.out.println("Test parallel: " +testResultEqualsParallel);
             System.out.println("Test sequential: " +testResultEqualsSequential);
-        //}
+        }
 
     }
 

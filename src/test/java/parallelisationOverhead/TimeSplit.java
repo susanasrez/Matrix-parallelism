@@ -15,7 +15,7 @@ public class TimeSplit {
         List<Integer> dimensions = Arrays.asList(8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096,
                 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304);
         for (Integer n : dimensions){
-            System.out.println();
+            System.out.println("N =" + n);
             Matrix matrixA = Operators.operator(n);
             timerSplit(matrixA);
         }
