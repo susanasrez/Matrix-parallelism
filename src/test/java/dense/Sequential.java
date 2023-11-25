@@ -11,12 +11,11 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @Warmup(iterations = 1)
-//Cambiar a 3
-@Measurement(iterations = 2)
+@Measurement(iterations = 3)
 
 public class Sequential {
     @Benchmark
     public void multiplication(BenchmarkStateSequential.Operands operands) {
-        Matrix result = new DenseMatrixMultiplication().multiply(operands.matrixA, operands.matrixA);
+        new DenseMatrixMultiplication().multiply(operands.matrixA, operands.matrixA);
     }
 }

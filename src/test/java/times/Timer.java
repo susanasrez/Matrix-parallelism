@@ -17,11 +17,11 @@ import java.util.List;
 
 public class Timer {
 
-    private static MatrixMultiplicationChecker checker = new Checker();
+    private static final MatrixMultiplicationChecker checker = new Checker();
     private static Matrix result_tiles;
     private static Matrix result_tiles_noalign;
     private static Matrix result_sequential;
-    private static Initialiser initialiser = new BlockSizeCalculator();
+    private static final Initialiser initialiser = new BlockSizeCalculator();
 
     public static void main(String[] args) throws InterruptedException {
         List<Integer> dimensions = Arrays.asList(8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096,

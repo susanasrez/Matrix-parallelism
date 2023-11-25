@@ -11,14 +11,13 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @Warmup(iterations = 1)
-//Cambiar a 3
-@Measurement(iterations = 2)
+@Measurement(iterations = 3)
 
 public class ParallelAlign {
 
     @Benchmark
     public void multiplication(BenchmarkStateAlign.Operands operands) {
-        Matrix result = new TilesMatrixMultiplier().multiply(operands.matrixA, operands.matrixA);
+        new TilesMatrixMultiplier().multiply(operands.matrixA, operands.matrixA);
     }
 
 }

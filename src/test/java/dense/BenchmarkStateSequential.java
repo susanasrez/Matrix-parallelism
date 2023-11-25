@@ -7,7 +7,6 @@ import org.openjdk.jmh.annotations.State;
 import org.ulpgc.matrixmultiplication.Matrix;
 import org.ulpgc.matrixmultiplication.initialiser.BlockSizeCalculator;
 import org.ulpgc.matrixmultiplication.initialiser.Initialiser;
-import org.ulpgc.matrixmultiplication.matrix.PartitionedMatrix;
 import org.ulpgc.matrixmultiplication.matrixbuilders.DenseRandomMatrix;
 
 public class BenchmarkStateSequential {
@@ -20,7 +19,6 @@ public class BenchmarkStateSequential {
 
         public Matrix matrixA;
         DenseRandomMatrix denseRandomMatrix = new DenseRandomMatrix();
-        Initialiser initialiser = new BlockSizeCalculator();
 
         @Setup
         public void setup() {
