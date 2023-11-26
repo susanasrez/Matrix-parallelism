@@ -29,7 +29,7 @@ public class Timer {
 
         for (Integer n : dimensions) {
             Matrix matrixA = Operators.operator(n);
-            System.out.println("N = " + 8192);
+            System.out.println("N = " + n);
             timerParallel(matrixA);
             timerParallelNoAlign(matrixA);
             timerSequential(matrixA);
